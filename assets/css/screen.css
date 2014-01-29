@@ -1,5 +1,10 @@
-html {
-    background-color: #84978F;
+html body {
+    background-color: #527578;
+}
+
+a:link a:hover a:active a:visited {
+    color: #47423F;
+    font-style: normal;
 }
 
 .home-template {
@@ -10,7 +15,32 @@ html {
     background-color: #84978F;
 }
 
-.post {
-    background-color: #84978F;
+.posts {
     color: #47423F;
+}
+.post {
+    color: #47423F;
+}
+.tag {
+    font-size: 7pt;
+}
+
+
+.navbar {
+    background-color: #47423F;
+}
+
+.newer-posts .older-posts {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.post-meta {
+    color: #B3B1B2;
+    font-size: 8pt;
+}
+
+.pagination {
+    text-align: center;
 }
