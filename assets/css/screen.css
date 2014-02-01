@@ -6,8 +6,7 @@ html body {
 body {
     padding-top: 70px;
 }
-
-a:link a:hover a:active a:visited {
+a a:link a:hover a:active a:visited {
     color: #47423F;
     font-style: normal;
 }
@@ -16,7 +15,6 @@ a:link a:hover a:active a:visited {
 }
 
 .jumbotron {
-    background-color: #C9A798;
 }
 
 .posts {

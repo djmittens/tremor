@@ -5,16 +5,9 @@
 
 {{! The main content area on the homepage }}
 <main class="content" role="main">
-    <!--<div class="jumbotron" style="background-image: url('{{@blog.cover}}'); background-size: 100%;">-->
-    <div class="jumbotron">
+    <div class="jumbotron" style="background-image: url('{{@blog.cover}}');background-repeat: no-repeat; background-size: 100%;">
+    <!--<div class="jumbotron col-md-12">-->
         <img src = "{{@blog.logo}}" height="200px"/>
-        <h1 class="blog-title">{{@blog.title}}</h1>
-        <h2 class="blog-description">{{@blog.description}}</h2>
-        <small>
-            <span class="btn btn-default" >GitHub</span>
-            <span class="btn btn-default" >LinkedIn</span>
-            <span class="btn btn-default" >Bitbucket</span>
-        </small>
     </div>
     <div class="col-md-12 posts">
         {{! Each post will be output using this markup }}
