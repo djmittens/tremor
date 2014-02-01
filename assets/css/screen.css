@@ -3,9 +3,6 @@ html body {
 
 }
 
-body {
-    padding-top: 70px;
-}
 a a:link a:hover a:active a:visited {
     color: #47423F;
     font-style: normal;
@@ -15,6 +12,12 @@ a a:link a:hover a:active a:visited {
 }
 
 .jumbotron {
+    color: #FFFFFF;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
 .posts {

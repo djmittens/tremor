@@ -8,6 +8,7 @@
     <div class="jumbotron" style="background-image: url('{{@blog.cover}}');background-repeat: no-repeat; background-size: 100%;">
     <!--<div class="jumbotron col-md-12">-->
         <img src = "{{@blog.logo}}" height="200px"/>
+        <h1>{{@blog.title}}<small><blockquote><p>Such Blog, So Amaze, Wow</p><small>Sir Doge</small></blockquote></small></h1>
     </div>
     <div class="col-md-12 posts">
         {{! Each post will be output using this markup }}
@@ -16,8 +17,9 @@
             <article class="{{post_class}} col-md-3">
                 <header class="post-header">
                     <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
-                    <span class="post-meta"><time
-                            datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time> </span>
+                    <span class="post-meta">
+                        <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
+                    </span>
                 </header>
                 <section class="post-excerpt">
                     <blockquote>
