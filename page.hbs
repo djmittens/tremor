@@ -3,6 +3,7 @@
 {{! This is a page template. A page outputs content just like any other post, and has all the same
     attributes by default, but you can also customise it to behave differently if you prefer. }}
 
+{{#post}}
 <main class="content" role="main">
 
     <article class="{{post_class}} span-12">
@@ -17,7 +18,6 @@
             </a>
         </header>
 
-        {{#post}}
 
             <h1 class="post-title">{{{title}}}</h1>
 
@@ -25,8 +25,8 @@
                 {{content}}
             </section>
 
-        {{/post}}
 
     </article>
 
 </main>
+{{/post}}
