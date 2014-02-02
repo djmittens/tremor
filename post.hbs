@@ -3,27 +3,24 @@
 {{! The comment above "< default" means - insert everything in this file into
     the {body} of the default.hbs template, which contains our header/footer. }}
 
-<link rel="stylesheet" type="text/css" href="{{asset "css/page.css"}}"/>
-
 {{#post}}
 
     <main class="content col-md-12" role="main" style="
-            background-attachment: fixed;
-            background-image: url('{{author.cover}}');
-            background-repeat: no-repeat;
-            background-size: 100%;
-            padding-left: 50px;
-            padding-right: 50px;
-            ">
+        background-image: url('{{author.cover}}');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        padding-left: 50px;
+        padding-right: 50px;
+        ">
 
         <div style="height:100px; text-align: center">
-            <h1 class="post-title">{{{title}}}</h1>
+            <h1>{{{title}}}</h1>
             <small><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time></small>
         </div>
         <article class="{{post_class}}" style="
-        background-color: #FFFFFF;
-        padding: 50px;
-        ">
+            background-color: #FFFFFF;
+            padding: 50px;
+            ">
 
             {{! Each post has the blog logo at the top, with a link back to the home page }}
             <header class="post-header">
@@ -41,27 +38,8 @@
 
             <footer class="post-footer">
 
-                <section class="author panel panel-default">
-
-                    <div class="panel-heading">
-                        <h3 class="panel-title">About the author:</h3>
-                    </div>
-
-                    <div class="panel-body" class="col-md-12">
-                        <img src="{{author.image}}" class="thumbnail" style="margin:5px; float:left; min-height:100px;height:100px;"/>
-                        <h4>{{author.name}}</h4>
-                        <small>{{author.bio}}</small>
-                    </div>
-                </section>
-
-                {{#foreach tags}}
-                    <span class="tag btn btn-default glyphicon glyphicon-tag">
-                        {{name}}
-                    </span>
-                {{/foreach}}
-
-                <section class="share">
-                    <h4>Share this post</h4>
+                <section class="share text-right">
+                    <h5>Share This Post: </h5>
                     <a class="icon-twitter"
                        href="http://twitter.com/share?text={{encode title}}&url={{url absolute="true"}}"
                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
@@ -78,6 +56,11 @@
                     </a>
                 </section>
 
+                {{#foreach tags}}
+                    <span class="tag btn btn-default glyphicon glyphicon-tag">
+                        {{name}}
+                    </span>
+                {{/foreach}}
             </footer>
         </article>
 
