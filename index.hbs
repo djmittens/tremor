@@ -5,10 +5,22 @@
 
 {{! The main content area on the homepage }}
 <main class="content" role="main">
-    <div class="jumbotron" style="background-image: url('{{@blog.cover}}');background-repeat: no-repeat; background-size: 100%;">
-    <!--<div class="jumbotron col-md-12">-->
-        <img src = "{{@blog.logo}}" height="200px"/>
-        <h1>{{@blog.title}}<small><blockquote><p>Such Blog, So Amaze, Wow</p><small>Sir Doge</small></blockquote></small></h1>
+    <div class="parallax" style="
+            height: 600px;
+            background-image: url({{asset "images/parallax-top.png"}}),
+            url({{asset "images/parallax-mid.png"}}),
+            url({{asset "images/parallax-bottom.jpg"}});
+            background-repeat: no-repeat;
+            background-size: 100%;">
+        <img src="{{@blog.logo}}" height="200px"/>
+
+        <h1>{{@blog.title}}
+            <small>
+                <blockquote><p>Such Blog, So Amaze, Wow</p>
+                    <small>Sir Doge</small>
+                </blockquote>
+            </small>
+        </h1>
     </div>
     <div class="col-md-12 posts">
         {{! Each post will be output using this markup }}
@@ -29,9 +41,9 @@
                 </section>
                 <section>
                     {{#foreach tags}}
-                    <span class="tag btn btn-default glyphicon glyphicon-tag">
-                        {{name}}
-                    </span>
+                        <span class="tag btn btn-default glyphicon glyphicon-tag">
+                            {{name}}
+                        </span>
                     {{/foreach}}
                 </section>
             </article>
