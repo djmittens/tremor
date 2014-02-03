@@ -64,11 +64,15 @@ a a:link a:hover a:active a:visited {
 
 .parallax {
     color: #FFFFFF;
+    /*
     text-shadow:
         -1px -1px 0 #000,
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
+        */
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .posts {
@@ -76,6 +80,8 @@ a a:link a:hover a:active a:visited {
 }
 .post {
     color: #47423F;
+    background-color: #FFFFFF;
+    padding: 2px;
 }
 .tag {
     font-size: 7pt;

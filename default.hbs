@@ -57,7 +57,7 @@
 {{! Everything else gets inserted here }}
 {{{body}}}
 
-<footer class="site-footer">
+<footer class="site-footer col-md-12">
     <a class="subscribe icon-feed" href="{{@blog.url}}/rss/"><span class="tooltip">Subscribe!</span></a>
 
     <div class="inner">
@@ -87,7 +87,7 @@
 
             $(window).scroll(function() {
                 var scroll = $(window).scrollTop();
-                var yPos1 = -(scroll / 2);
+                var yPos1 = -(scroll / 1);
                 var yPos2 = -(scroll / 3);
                 var yPos3 = -(scroll / 5);
 

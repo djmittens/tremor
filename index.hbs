@@ -4,13 +4,12 @@
     the {body} of the default.hbs template, which contains our header/footer. }}
 
 {{! The main content area on the homepage }}
-<main class="content" role="main">
-    <div class="parallax" style="
+<main class="content parallax col-md-12" role="main" style="
             background-image: url({{asset "images/parallax-top.png"}}),
             url({{asset "images/parallax-mid.png"}}),
             url({{asset "images/parallax-bottom.jpg"}});
-            background-repeat: no-repeat;
-            background-size: 100%;">
+            ">
+    <div class="col-md-4" >
         <img src="{{@blog.logo}}" height="200px"/>
 
         <h1>{{@blog.title}}
@@ -22,29 +21,32 @@
         </h1>
     </div>
     <div class="col-md-12 posts">
+
         {{! Each post will be output using this markup }}
         {{#foreach posts}}
-            <article class="{{post_class}} col-md-3">
-                <header class="post-header">
-                    <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+            <div class="col-md-3" style="padding: 2px;">
+                <article class="{{post_class}} col-md-12">
+                    <header class="post-header">
+                        <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
                     <span class="post-meta">
                         <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMM YYYY"}}</time>
                     </span>
-                </header>
-                <section class="post-excerpt">
-                    <blockquote>
-                        <p>{{excerpt}}&hellip;</p>
-                        <small>{{author.name}}</small>
-                    </blockquote>
-                </section>
-                <section>
-                    {{#foreach tags}}
-                        <span class="tag btn btn-default glyphicon glyphicon-tag">
-                            {{name}}
-                        </span>
-                    {{/foreach}}
-                </section>
-            </article>
+                    </header>
+                    <section class="post-excerpt">
+                        <blockquote>
+                            <p>{{excerpt}}&hellip;</p>
+                            <small>{{author.name}}</small>
+                        </blockquote>
+                    </section>
+                    <section>
+                        {{#foreach tags}}
+                            <span class="tag btn btn-default glyphicon glyphicon-tag">
+                                {{name}}
+                            </span>
+                        {{/foreach}}
+                    </section>
+                </article>
+            </div>
         {{/foreach}}
         {{!! After all the posts, we have the previous/next pagination links }}
         <div class="pagination col-md-12">{{pagination}}</div>
