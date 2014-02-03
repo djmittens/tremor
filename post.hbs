@@ -12,21 +12,18 @@
         padding-right: 50px;
         ">
 
-        <div style="height:100px; text-align: center">
+        <div class="post-header" style="height:100px; text-align: center">
             <h1>{{{title}}}</h1>
             <small><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time></small>
         </div>
         <article class="{{post_class}}" style="
             background-color: #FFFFFF;
+            max-width: 1200px;
             padding: 50px;
+             margin: 0 auto;
             ">
 
-            {{! Each post has the blog logo at the top, with a link back to the home page }}
-            <header class="post-header">
-            </header>
-
             {{! Everything inside the #post tags pulls data from the post }}
-
 
             <section class="post-content">
                 {{content}}
