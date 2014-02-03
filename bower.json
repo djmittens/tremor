@@ -1,0 +1,22 @@
+{
+  "name": "tremor",
+  "version": "1.0",
+  "homepage": "http://spooky.ghost.io.",
+  "authors": [
+    "Nikita Gridinskiy <nikita.gridinskiy@gmail.com>"
+  ],
+  "description": "Ghost theme for my blog.",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.1.0",
+    "jquery": "~2.1.0"
+  }
+}
