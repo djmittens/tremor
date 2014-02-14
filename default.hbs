@@ -19,13 +19,20 @@
     <link rel="stylesheet" type="text/css"
           href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400"/>
     <!-- Syntax highlighting for yo ass -->
-    <link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}"/>
+    <!--<link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}"/>-->
+    <!-- build:css assets/css/main.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/screen.css"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css "/>
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css "/>
+    <!-- endbuild -->
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
     <nav class="navbar navbar-fixed-top navbar-inverse " role="navigation">
         <div class="fluid-container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -69,22 +76,29 @@
 
 {{! The main JavaScript file for Casper }}
 <script type="text/javascript" src="{{asset "js/main.js"}}"></script>
+<!-- build:js {{!asset-"js/app.js"}} -->
+<script src="{{asset "bower_components/jquery/jquery.js"}}"></script>
+<script src="{{asset "bower_components/bootstrap/dist/js/bootstrap.js"}}"></script>
+<script src="{{asset "js/index.js"}}"></script>
+<script src="{{asset "js/jquery.fitvids.js"}}"></script>
+<!-- endbuild -->
+<script src="asset https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
 <script type="application/javascript">
-    $(document).ready(function(){
-        $('.parallax').each(function(){
+    $(document).ready(function () {
+        $('.parallax').each(function () {
             var $bgobj = $(this); // assigning the object
 
-            $(window).scroll(function() {
+            $(window).scroll(function () {
                 var scroll = $(window).scrollTop();
-                var yPos1 = -(scroll / 1);
+                var yPos1 = -(scroll / 2);
                 var yPos2 = -(scroll / 3);
                 var yPos3 = -(scroll / 5);
 
                 // Put together our final background position
-                var coords1 = '50% '+ yPos1 + 'px';
-                var coords2 = '50% '+ yPos2 + 'px';
-                var coords3 = '50% '+ yPos3 + 'px';
+                var coords1 = '50% ' + yPos1 + 'px';
+                var coords2 = '50% ' + yPos2 + 'px';
+                var coords3 = '50% ' + yPos3 + 'px';
 
                 // Move the background
                 $bgobj.css({ backgroundPosition: coords1 + ',' + coords2 + ',' + coords3});
