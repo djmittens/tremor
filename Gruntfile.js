@@ -3,6 +3,8 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        bower: grunt.file.readJSON('bower.json'),
+        clean: ['dist'],
         /**
          * Make one huge java script file.
          * FIXME: Need to add support to usemin for special asset incantation of ghost.
@@ -21,6 +23,10 @@ module.exports = function (grunt) {
                 }
             }
         },
+        /**
+         * DAAANg bitch u is ugly.
+         * FIXME: Usemin is actually supposed to do this part for us, so fix it dammit!!!
+         */
         uglify: {
             options: {
                 mangle: false
@@ -70,7 +76,7 @@ module.exports = function (grunt) {
         compress: {
             dist:  {
                 options: {
-                    archive: 'dist/tremor.zip'
+                    archive: 'dist/tremor.v.<%= bower.version %>.zip'
                 },
                 files: [
                     {expand: true, src: ['**'], cwd: 'dist/tremor' }
@@ -80,6 +86,7 @@ module.exports = function (grunt) {
     });
 
     // Load the plugin that provides the "uglify" task.
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
@@ -88,7 +95,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-replace');
 
     // Default task(s).
-    grunt.registerTask('default', ['concat', 'uglify', 'copy', 'usemin', 'replace', 'compress']);
+    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'copy', 'usemin', 'replace', 'compress']);
 
     var insertBlocks = function (content, srcpath) {
         return content.replace('/');

@@ -1,5 +1,4 @@
 {
-  "pkg.name": "tremor",
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-concat": "~0.3.0",
@@ -7,6 +6,7 @@
     "grunt-contrib-copy": "~0.5.0",
     "grunt-usemin": "~2.0.2",
     "grunt-replace": "~0.6.2",
-    "grunt-contrib-compress": "~0.6.1"
+    "grunt-contrib-compress": "~0.6.1",
+    "grunt-contrib-clean": "~0.5.0"
   }
 }
