@@ -8,7 +8,7 @@ module.exports = function (grunt) {
         cssmin: {
             dist: {
                 files: {
-                    'dist/tremor/assets/app.min.css': [
+                    'dist/assets/css/app.min.css': [
                         'assets/css/*.css',
                         'assets/bower_components/bootstrap/dist/css/*.min.css'
                     ]
@@ -26,7 +26,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/tremor/assets/app.min.js': [
+                    'dist/assets/js/app.min.js': [
                         'assets/js/*',
                         'assets/bower_components/jquery/jquery.js',
                         'assets/bower_components/bootstrap/dist/js/bootstrap.js'
@@ -41,17 +41,19 @@ module.exports = function (grunt) {
         copy: {
             dist: {
                 files: [
-                    {expand: true, src: ['assets/images/*'], dest: 'dist/tremor/'},
-                    {expand: true, src: ['assets/fonts/*'], dest: 'dist/tremor/'},
-                    {expand: true, src: ['*.hbs', '*.md'], dest: 'dist/tremor/'}
+                    {expand: true, src: ['assets/images/*'], dest: 'dist/'},
+                    {expand: true, src: ['assets/fonts/*'], dest: 'dist/'},
+                    {expand: true, src: ['*'], cwd:'assets/bower_components/bootstrap/fonts/', dest: 'dist/assets/fonts'},
+                    {expand: true, src: ['*.hbs', '*.md'], dest: 'dist/'}
+
                 ]
             }
         },
         usemin: {
             options: {
-                dest: 'dist/tremor'
+                dest: 'dist/'
             },
-            html: ['dist/tremor/*.hbs']
+            html: ['dist/*.hbs']
         },
 
         //FIXME: Ugly ass fix for usemin not being able to tolerate spaces.
@@ -67,7 +69,7 @@ module.exports = function (grunt) {
                     prefix: ''
                 },
                 files: [
-                    { expand: true, flatten: true, src: ['dist/tremor/*.hbs'], dest: 'dist/tremor' }
+                    { expand: true, flatten: true, src: ['dist/*.hbs'], dest: 'dist' }
                 ]
             }
         },
@@ -77,7 +79,7 @@ module.exports = function (grunt) {
                     archive: 'dist/tremor.v.<%= bower.version %>.zip'
                 },
                 files: [
-                    {expand: true, src: ['**'], cwd: 'dist/tremor' }
+                    {expand: true, src: ['**'], cwd: 'dist/' }
                 ]
             }
         }

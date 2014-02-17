@@ -20,7 +20,7 @@
           href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400"/>
     <!-- Syntax highlighting for yo ass -->
     <!--<link rel="stylesheet" type="text/css" href="{{asset "css/main.css"}}"/>-->
-    <!-- build:css assets/css/main.css -->
+    <!-- build:css {{!asset-"css/app.min.css"}} -->
     <link rel="stylesheet" type="text/css" href="assets/css/normalize.css"/>
     <link rel="stylesheet" type="text/css" href="assets/css/screen.css"/>
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css "/>
@@ -75,14 +75,13 @@
 {{ghost_foot}}
 
 {{! The main JavaScript file for Casper }}
-<script type="text/javascript" src="{{asset "js/main.js"}}"></script>
-<!-- build:js {{!asset-"js/app.js"}} -->
+<!-- build:js {{!asset-"js/app.min.js"}} -->
 <script src="{{asset "bower_components/jquery/jquery.js"}}"></script>
 <script src="{{asset "bower_components/bootstrap/dist/js/bootstrap.js"}}"></script>
 <script src="{{asset "js/index.js"}}"></script>
 <script src="{{asset "js/jquery.fitvids.js"}}"></script>
 <!-- endbuild -->
-<script src="asset https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
 <script type="application/javascript">
     $(document).ready(function () {
