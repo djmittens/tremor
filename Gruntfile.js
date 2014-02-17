@@ -5,24 +5,17 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         bower: grunt.file.readJSON('bower.json'),
         clean: ['dist'],
-        /**
-         * Make one huge java script file.
-         * FIXME: Need to add support to usemin for special asset incantation of ghost.
-         */
-        concat: {
-            options: {
-                separator: ';'
-            },
+        cssmin: {
             dist: {
                 files: {
-                    'dist/tremor/assets/app.js': [
-                        'assets/js/*',
-                        'assets/bower_components/jquery/jquery.js',
-                        'assets/bower_components/bootstrap/dist/js/bootstrap.js'
+                    'dist/tremor/assets/app.min.css': [
+                        'assets/css/*.css',
+                        'assets/bower_components/bootstrap/dist/css/*.min.css'
                     ]
                 }
             }
         },
+
         /**
          * DAAANg bitch u is ugly.
          * FIXME: Usemin is actually supposed to do this part for us, so fix it dammit!!!
@@ -33,20 +26,24 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/tremor/assets/app.js': ['dist/tremor/assets/app.js']
+                    'dist/tremor/assets/app.min.js': [
+                        'assets/js/*',
+                        'assets/bower_components/jquery/jquery.js',
+                        'assets/bower_components/bootstrap/dist/js/bootstrap.js'
+                    ]
                 }
             }
         },
+
         /**
          * Copy Over all of the important files to the distination directory.
          */
         copy: {
             dist: {
                 files: [
-                    {expand: true, src: ['assets/images/*'], dest: 'dist/tremor/assets/images'},
-                    {expand: true, src: ['assets/fonts/*'], dest: 'dist/tremor/assets/fonts'},
+                    {expand: true, src: ['assets/images/*'], dest: 'dist/tremor/'},
+                    {expand: true, src: ['assets/fonts/*'], dest: 'dist/tremor/'},
                     {expand: true, src: ['*.hbs', '*.md'], dest: 'dist/tremor/'}
-
                 ]
             }
         },
@@ -56,6 +53,7 @@ module.exports = function (grunt) {
             },
             html: ['dist/tremor/*.hbs']
         },
+
         //FIXME: Ugly ass fix for usemin not being able to tolerate spaces.
         replace: {
             dist: {
@@ -87,18 +85,13 @@ module.exports = function (grunt) {
 
     // Load the plugin that provides the "uglify" task.
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-compress');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-usemin');
     grunt.loadNpmTasks('grunt-replace');
 
     // Default task(s).
-    grunt.registerTask('default', ['clean', 'concat', 'uglify', 'copy', 'usemin', 'replace', 'compress']);
-
-    var insertBlocks = function (content, srcpath) {
-        return content.replace('/');
-    };
-
+    grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'copy', 'usemin', 'replace', 'compress']);
 };
