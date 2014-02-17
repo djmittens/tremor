@@ -28,7 +28,7 @@ module.exports = function (grunt) {
                 files: {
                     'dist/assets/js/app.min.js': [
                         'assets/js/*',
-                        'assets/bower_components/jquery/jquery.js',
+                        'assets/bower_components/jquery/dist/jquery.js',
                         'assets/bower_components/bootstrap/dist/js/bootstrap.js'
                     ]
                 }
