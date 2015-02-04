@@ -16,6 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "flowchart": "https://github.com/adrai/flowchart.js.git#~1.3.3"
+    "mermaid": "~0.3.3"
   }
 }
