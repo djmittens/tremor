@@ -19,7 +19,7 @@ gulp.task('html', ['styles'], function () {
     .pipe($.if('*.css', $.csso()))
     .pipe(assets.restore())
     .pipe($.useref())
-    .pipe($.if('*.hbs', $.minifyHtml({conditionals: true, loose: true})))
+    .pipe($.if('*.hbs', $.replace(/assets\/([^">]+)/g, '{{asset "$1"}}')))
     .pipe(gulp.dest('dist'));
 });
 
@@ -47,14 +47,19 @@ gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
 
   gulp.src('*.hbs')
-    .pipe(wiredep())
+    .pipe(wiredep({
+      cwd: 'assets'
+    }))
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('build', ['html', 'images', 'fonts'], function() {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+gulp.task('build', ['clean', 'html', 'images', 'fonts'], function() {
+  return gulp.src('dist/**/*').
+    pipe($.size({title: 'build', gzip: true})).
+    pipe($.zip('tremor.zip')).
+    pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['clean'], function () {
+gulp.task('default', function () {
   gulp.start('build');
 });
